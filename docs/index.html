@@ -1,133 +1,205 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="팬덤과 서사를 가진 IP를 발굴하고, 구조화하고, 검증하여 더 큰 사업으로 확장합니다." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="IPCS는 팬덤과 서사를 가진 IP를 발굴하고, 사업으로 구조화해 검증하고 투자합니다." />
     <meta name="theme-color" content="#2946f3" />
+    <meta property="og:title" content="IPCS | We build IP into business" />
+    <meta property="og:description" content="좋은 IP를, 사업이 되게 만든다." />
+    <meta property="og:type" content="website" />
     <title>IPCS | We build IP into business</title>
     <link rel="icon" href="assets/ipcs-logo.png" />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
+    <script src="portfolio-data.js" defer></script>
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">본문 바로가기</a>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="IPCS 홈">
-        <img src="assets/ipcs-logo.png" alt="IPCS" />
+        <img src="assets/ipcs-logo.png" alt="IPCS" width="980" height="284" />
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
-      </button>
       <nav id="site-nav" aria-label="주요 메뉴">
         <a href="#approach">Approach</a>
-        <a href="#system">What we do</a>
-        <a href="#platform">Platform</a>
+        <a href="#system">System</a>
         <a href="#portfolio">Portfolio</a>
+        <a href="#platform">PoC</a>
         <a href="#about">About</a>
       </nav>
-      <a class="header-cta" href="mailto:jhpark@human108.com?subject=IPCS%20Website%20Inquiry">
-        Start a conversation <span aria-hidden="true">↗</span>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">메뉴 열기</span>
+        <span></span><span></span>
+      </button>
+      <a class="header-cta email-link" href="mailto:jhpark@human108.com" data-subject="IPCS | 홈페이지 문의">
+        Contact <span aria-hidden="true">↗</span>
       </a>
     </header>
 
-    <main id="main">
+    <main id="main-content">
       <section class="hero" id="top">
         <div class="hero-grid" aria-hidden="true">
-          <span class="module module-a"></span><span class="module module-b"></span>
-          <span class="module module-c"></span><span class="module module-d"></span>
+          <span class="module module-a"></span>
+          <span class="module module-b"></span>
+          <span class="module module-c"></span>
+          <span class="module module-d"></span>
           <span class="module module-e"></span>
         </div>
-        <div class="eyebrow light"><span>IP Business Builder</span><span>Seoul, Korea</span></div>
+        <div class="eyebrow light">
+          <span>IP Business Builder</span>
+          <span>Investment × Execution</span>
+        </div>
         <div class="hero-copy">
+          <p class="hero-kicker">From story to scale.</p>
           <h1>좋은 IP를,<br /><em>사업이 되게 만든다.</em></h1>
           <div class="hero-bottom">
-            <p>IPCS는 팬덤과 서사를 가진 IP를 발굴하고,<br />구조화하고, 검증하여 더 큰 사업으로 확장합니다.</p>
-            <a class="circle-link" href="#approach" aria-label="IPCS의 접근 방식 보기"><span>Explore</span><b aria-hidden="true">↓</b></a>
+            <p>IPCS는 팬덤과 서사를 가진 IP를 발굴하고,<br />사업으로 구조화해 검증하고 투자합니다.</p>
+            <a class="circle-link" href="#approach" aria-label="IPCS의 접근 방식 보기">
+              <span>Explore</span><b aria-hidden="true">↓</b>
+            </a>
           </div>
         </div>
       </section>
 
-      <section class="statement section-pad" id="approach">
-        <div class="eyebrow"><span>01 / Our Philosophy</span><span>Story → Structure → Scale</span></div>
-        <div class="statement-layout">
-          <p class="section-lead">IP는 캐릭터만을 뜻하지 않습니다.</p>
+      <section class="glance section-pad" id="approach">
+        <div class="eyebrow">
+          <span>01 / IPCS at a glance</span>
+          <span>Story → Structure → Scale</span>
+        </div>
+        <div class="glance-layout">
           <div>
-            <h2>사람을 움직이는 <span>서사</span>와<br />오래 이어지는 <span>관계</span>,<br />확장 가능한 <span>사업 자산.</span></h2>
-            <p class="statement-note">캐릭터, 게임, 콘텐츠, 크리에이터, 브랜드, F&amp;B까지. IPCS는 팬덤을 만들고 새로운 시장으로 확장할 수 있는 모든 가능성을 IP의 관점으로 바라봅니다.</p>
+            <p class="section-label">What we build</p>
+            <h2>서사를 발견하고,<br /><span>사업의 구조</span>를 만듭니다.</h2>
+          </div>
+          <div class="glance-copy">
+            <p class="large-copy">IPCS가 말하는 IP는 캐릭터에 한정되지 않습니다. 사람을 움직이는 서사와 팬덤, 다른 시장으로 이어질 확장성을 가진 사업 자산을 뜻합니다.</p>
+            <p>캐릭터, 게임, 콘텐츠, 크리에이터, 브랜드, F&amp;B까지. 가능성을 찾는 데서 멈추지 않고 실행 가능한 사업으로 만들고 시장에서 검증합니다.</p>
+            <dl class="glance-facts">
+              <div><dt>Position</dt><dd>Investor + Builder</dd></div>
+              <div><dt>Focus</dt><dd>Story-driven IP</dd></div>
+              <div><dt>Base</dt><dd>Seoul, Korea</dd></div>
+            </dl>
           </div>
         </div>
       </section>
 
       <section class="system section-pad" id="system">
-        <div class="eyebrow light"><span>02 / What We Do</span><span>Investment × Execution</span></div>
+        <div class="eyebrow light">
+          <span>02 / How IPCS works</span>
+          <span>Source → Build → Validate → Invest → Scale</span>
+        </div>
         <div class="system-heading">
           <h2>From possibility<br />to business.</h2>
-          <p>가능성을 찾는 데서 멈추지 않습니다. 사업을 설계하고, 시장에서 검증하고, 성장을 위한 자본을 연결합니다.</p>
+          <p>발굴, 실행, 검증과 투자를 하나의 흐름으로 연결합니다. 필요한 경우 사업의 현장에 직접 들어가 구조를 함께 만듭니다.</p>
         </div>
         <div class="capability-list">
-          <article><span class="cap-number">01</span><div class="cap-title"><h3>Source</h3><span>IP Sourcing</span></div><p>팬덤과 서사, 확장 가능성을 가진 IP와 팀을 발굴합니다.</p><i class="cap-marker" aria-hidden="true"></i></article>
-          <article><span class="cap-number">02</span><div class="cap-title"><h3>Build</h3><span>Business Building</span></div><p>아이디어를 실행 가능한 사업 구조와 운영 체계로 전환합니다.</p><i class="cap-marker" aria-hidden="true"></i></article>
-          <article><span class="cap-number">03</span><div class="cap-title"><h3>Validate</h3><span>Real-world PoC</span></div><p>실제 고객과 시장이 있는 환경에서 가능성을 검증합니다.</p><i class="cap-marker" aria-hidden="true"></i></article>
-          <article><span class="cap-number">04</span><div class="cap-title"><h3>Invest</h3><span>Investment</span></div><p>검증된 기회에 자본과 성장 네트워크를 연결합니다.</p><i class="cap-marker" aria-hidden="true"></i></article>
+          <article><span class="cap-number">01</span><div class="cap-title"><h3>Source</h3><span>IP Sourcing</span></div><p>팬덤과 서사, 확장 가능성을 가진 IP와 팀을 발굴합니다.</p><span class="cap-marker" aria-hidden="true"></span></article>
+          <article><span class="cap-number">02</span><div class="cap-title"><h3>Build</h3><span>Business Building</span></div><p>사업모델과 운영 구조를 설계하고 실행 기반을 만듭니다.</p><span class="cap-marker" aria-hidden="true"></span></article>
+          <article><span class="cap-number">03</span><div class="cap-title"><h3>Validate</h3><span>Real-world PoC</span></div><p>실제 고객과 시장이 있는 환경에서 가능성을 검증합니다.</p><span class="cap-marker" aria-hidden="true"></span></article>
+          <article><span class="cap-number">04</span><div class="cap-title"><h3>Invest</h3><span>Investment</span></div><p>직접투자와 투자 네트워크로 성장의 다음 단계를 연결합니다.</p><span class="cap-marker" aria-hidden="true"></span></article>
+          <article><span class="cap-number">05</span><div class="cap-title"><h3>Scale</h3><span>Growth &amp; Licensing</span></div><p>후속투자, 파트너십과 라이선스를 통해 확장을 지원합니다.</p><span class="cap-marker" aria-hidden="true"></span></article>
         </div>
-      </section>
-
-      <section class="process section-pad">
-        <div class="eyebrow"><span>03 / How We Build</span><span>One system, two ways to work</span></div>
-        <div class="process-title"><h2>One system.<br />Two tracks.</h2><p>모든 기업에 같은 방식으로 개입하지 않습니다. 프로젝트의 단계와 필요에 따라 투자와 직접 실행의 깊이를 조정합니다.</p></div>
+        <div class="tracks-intro">
+          <h3>One system. Two tracks.</h3>
+          <p>모든 기업에 같은 방식으로 개입하지 않습니다. 단계와 필요에 따라 실행의 깊이를 조정합니다.</p>
+        </div>
         <div class="tracks">
-          <article><div class="track-top"><span>Track A</span><span>Capital + Network</span></div><h3>Investment</h3><p>가능성 있는 기업과 IP에 투자하고, 필요한 성장 자원을 연결합니다.</p><div class="track-line"><i></i></div></article>
-          <article><div class="track-top"><span>Track B</span><span>Strategy + Execution</span></div><h3>Venture Studio</h3><p>선별된 프로젝트에는 공동기획부터 사업화와 운영까지 직접 참여합니다.</p><div class="track-line"><i></i></div></article>
-        </div>
-        <div class="flow" aria-label="IPCS 사업 구축 프로세스">
-          <div><span>01</span><strong>Source</strong></div><div><span>02</span><strong>Build</strong></div>
-          <div><span>03</span><strong>Validate</strong></div><div><span>04</span><strong>Invest</strong></div>
-          <div><span>05</span><strong>Scale</strong></div>
-        </div>
-      </section>
-
-      <section class="platform" id="platform">
-        <div class="platform-copy">
-          <div class="eyebrow light"><span>04 / Physical PoC Platform</span><span>G-Planet</span></div>
-          <div><p class="platform-label">A place to prove ideas in the real world.</p><h2>Ideas meet<br />real audiences.</h2><p class="platform-description">G-Planet은 Audience × Content × Space × Media가 만나는 실증 플랫폼입니다. IPCS는 이곳을 포함한 실제 시장 환경에서 IP와 사업모델의 반응을 확인합니다.</p><span class="status-badge">Platform in preparation</span></div>
-        </div>
-        <div class="platform-visual" aria-hidden="true">
-          <div class="building"><span class="floor f5">AUDIENCE</span><span class="floor f4">CONTENT</span><span class="floor f3">SPACE</span><span class="floor f2">MEDIA</span><span class="floor f1">POC</span></div>
-          <span class="coordinate c1">37.57° N</span><span class="coordinate c2">126.98° E</span>
+          <article>
+            <div class="track-top"><span>Track A</span><span>Capital + Network</span></div>
+            <h3>Investment</h3>
+            <p>가능성 있는 기업과 IP에 투자하고, 필요한 성장 자원을 연결합니다.</p>
+            <div class="track-line"><i></i></div>
+          </article>
+          <article>
+            <div class="track-top"><span>Track B</span><span>Strategy + Execution</span></div>
+            <h3>Venture Studio</h3>
+            <p>선별된 프로젝트에는 공동기획부터 사업화와 운영까지 직접 참여합니다.</p>
+            <div class="track-line"><i></i></div>
+          </article>
         </div>
       </section>
 
       <section class="portfolio section-pad" id="portfolio">
-        <div class="eyebrow"><span>05 / Portfolio &amp; Pipeline</span><span>Public disclosure</span></div>
-        <div class="portfolio-heading"><h2>Built with<br />shared conviction.</h2><div><p>IPCS가 함께 검토하고 성장 기회를 만들어가는 기업을 공개합니다. 현재 투자 절차가 진행 중인 기업은 완료된 투자실적과 구분해 표시합니다.</p><span>Updated August 2026</span></div></div>
-        <div class="portfolio-list">
-          <article><span class="portfolio-number">01</span><div class="portfolio-name"><h3>라이크플레이엑스</h3><span>Content / Entertainment</span></div><span class="portfolio-status">Investment in preparation</span></article>
-          <article><span class="portfolio-number">02</span><div class="portfolio-name"><h3>더메디컬브릿지</h3><span>Healthcare / Global</span></div><span class="portfolio-status">Investment in preparation</span></article>
+        <div class="eyebrow">
+          <span>03 / Portfolio</span>
+          <span>Investment completed</span>
+        </div>
+        <div class="portfolio-heading">
+          <h2>Capital meets<br />execution.</h2>
+          <div>
+            <p>IPCS가 투자하고 성장의 다음 단계를 함께 만들어가는 포트폴리오입니다. 투자 방식과 각 기업의 역할을 사실에 맞게 구분해 표시합니다.</p>
+            <span>Updated August 2026</span>
+          </div>
+        </div>
+        <div class="portfolio-grid" id="portfolio-grid" aria-live="polite"></div>
+        <noscript><p class="portfolio-fallback">포트폴리오를 확인하려면 브라우저에서 JavaScript를 활성화해 주세요.</p></noscript>
+        <p class="portfolio-note">라이크플레이엑스와 더메디컬브릿지는 IPCS의 직접투자와 투자조합을 통한 투자가 함께 이루어졌으며, 오즈엑스는 투자조합을 통해 투자한 포트폴리오 기업입니다.</p>
+      </section>
+
+      <section class="platform" id="platform">
+        <div class="platform-copy">
+          <div class="eyebrow light">
+            <span>04 / Real-world PoC</span>
+            <span>One of our validation platforms</span>
+          </div>
+          <div>
+            <p class="platform-label">Ideas meet real audiences.</p>
+            <h2>Tested in<br />the real world.</h2>
+            <p class="platform-description">콘텐츠와 공간, 미디어를 결합해 실제 관객의 반응과 사업 가능성을 검증합니다. G-Planet은 IPCS가 활용하는 핵심 실증 환경 중 하나입니다.</p>
+            <div class="operator-note">
+              <span>Operated by</span><strong>OZX</strong><p>An IPCS portfolio company</p>
+            </div>
+          </div>
+        </div>
+        <div class="platform-visual" role="img" aria-label="G-Planet 실증 구조: 콘텐츠, 공간, 미디어가 실제 관객을 만나 사업 가능성을 검증합니다.">
+          <div class="poc-title"><span>G-Planet</span><strong>REAL-WORLD PoC</strong></div>
+          <div class="poc-system"><span>CONTENT</span><span>SPACE</span><span>MEDIA</span></div>
+          <div class="poc-result"><span>AUDIENCE RESPONSE</span><i aria-hidden="true">→</i><strong>BUSINESS VALIDATION</strong></div>
+          <span class="coordinate c1">37.57° N</span><span class="coordinate c2">126.98° E</span>
         </div>
       </section>
 
       <section class="partners section-pad">
-        <div class="eyebrow"><span>06 / Work With Us</span><span>Build the next opportunity</span></div>
-        <div class="partners-grid">
-          <div class="partners-title"><h2>Different roles.<br />Shared ambition.</h2></div>
-          <div class="partner-list">
-            <article><span>01</span><h3>IP Owner / Founder</h3><p>보유한 IP를 실제 사업으로 만들고 다음 성장 단계로 확장합니다.</p></article>
-            <article><span>02</span><h3>Investor / Partner</h3><p>발굴과 시장 검증 구조를 바탕으로 함께 투자 기회를 만듭니다.</p></article>
-            <article><span>03</span><h3>Corporate / Brand</h3><p>IP, 콘텐츠, 공간과 미디어를 연결한 새로운 프로젝트를 기획합니다.</p></article>
-          </div>
+        <div class="eyebrow"><span>05 / Work with us</span><span>Three ways to start</span></div>
+        <div class="partners-heading">
+          <h2>Bring the story.<br />We'll build the structure.</h2>
+          <p>소개하려는 IP, 투자 기회, 협업 목적에 맞는 경로로 대화를 시작하세요.</p>
+        </div>
+        <div class="partner-cards">
+          <article><span>01</span><h3>IP Owner / Founder</h3><p>보유한 IP와 기업을 소개하고 사업화·투자 가능성을 논의합니다.</p><a class="email-link" href="mailto:jhpark@human108.com" data-subject="IPCS | IP·기업 소개">Submit an IP <span aria-hidden="true">↗</span></a></article>
+          <article><span>02</span><h3>Investor / Partner</h3><p>투자 기회와 공동 사업, 성장 파트너십을 논의합니다.</p><a class="email-link" href="mailto:jhpark@human108.com" data-subject="IPCS | 투자·파트너십 문의">Discuss Investment <span aria-hidden="true">↗</span></a></article>
+          <article><span>03</span><h3>Corporate / Brand</h3><p>IP, 콘텐츠, 공간과 미디어를 연결한 프로젝트를 함께 설계합니다.</p><a class="email-link" href="mailto:jhpark@human108.com" data-subject="IPCS | 프로젝트 협업 문의">Build a Project <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
       <section class="about section-pad" id="about">
-        <div class="eyebrow light"><span>07 / About IPCS</span><span>IP Commercialization System</span></div>
-        <div class="about-grid"><h2>We build story-driven IP<br />into scalable business.</h2><p>IPCS는 투자와 실행을 결합한 IP 비즈니스 빌더입니다. 좋은 이야기가 시장에서 작동하는 구조를 갖추고, 더 멀리 확장될 수 있도록 함께 만듭니다.</p></div>
+        <div class="eyebrow light"><span>06 / About IPCS</span><span>Investment + Execution</span></div>
+        <div class="about-grid">
+          <h2>We build IP<br />into business.</h2>
+          <div>
+            <p>IPCS는 투자와 실행을 결합한 IP 비즈니스 빌더입니다. 좋은 이야기가 시장에서 작동하는 구조를 갖추고 더 멀리 확장되도록 함께 만듭니다.</p>
+            <dl class="company-profile">
+              <div><dt>Business</dt><dd>Investment · Business Building · PoC</dd></div>
+              <div><dt>Location</dt><dd>Seoul, Korea</dd></div>
+              <div><dt>Contact</dt><dd><a href="mailto:jhpark@human108.com">jhpark@human108.com</a></dd></div>
+            </dl>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer id="contact">
-      <div class="footer-top"><span>Have an IP or<br />an opportunity?</span><h2>Let's build<br />what's next.</h2><a class="footer-contact" href="mailto:jhpark@human108.com?subject=IPCS%20Website%20Inquiry" aria-label="IPCS 이메일 문의: jhpark@human108.com">Email us<small>jhpark@human108.com</small><b aria-hidden="true">↗</b></a></div>
-      <div class="footer-bottom"><a href="#top"><img class="footer-logo" src="assets/ipcs-logo.png" alt="IPCS" /></a><p>IPCS Inc. · Seoul, Korea</p><p>© 2026 IPCS. All rights reserved.</p></div>
+      <div class="footer-top">
+        <span>Have an IP or<br />an opportunity?</span>
+        <h2>Let's build<br />what's next.</h2>
+        <a class="footer-contact email-link" href="mailto:jhpark@human108.com" data-subject="IPCS | 홈페이지 문의"><span>Start a conversation</span><b aria-hidden="true">↗</b></a>
+      </div>
+      <div class="footer-bottom">
+        <a class="brand footer-brand" href="#top"><img class="footer-logo" src="assets/ipcs-logo.png" alt="IPCS" width="980" height="284" /></a>
+        <p>IPCS · Seoul, Korea · jhpark@human108.com</p>
+        <p>© 2026 IPCS. All rights reserved.</p>
+      </div>
     </footer>
   </body>
 </html>

@@ -2,6 +2,7 @@ const header = document.querySelector("[data-header]");
 const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#site-nav");
 const portfolioGrid = document.querySelector("#portfolio-grid");
+const trackToggles = document.querySelectorAll(".track-toggle");
 
 const closeMenu = () => {
   toggle?.setAttribute("aria-expanded", "false");
@@ -29,6 +30,22 @@ document.querySelectorAll(".email-link[data-subject]").forEach((link) => {
   link.setAttribute("href", `mailto:jhpark@human108.com?subject=${encodeURIComponent(subject)}`);
 });
 
+trackToggles.forEach((button) => {
+  button.addEventListener("click", () => {
+    const detail = document.getElementById(button.getAttribute("aria-controls"));
+    const isOpen = button.getAttribute("aria-expanded") === "true";
+
+    trackToggles.forEach((otherButton) => {
+      const otherDetail = document.getElementById(otherButton.getAttribute("aria-controls"));
+      otherButton.setAttribute("aria-expanded", "false");
+      if (otherDetail) otherDetail.hidden = true;
+    });
+
+    button.setAttribute("aria-expanded", String(!isOpen));
+    if (detail) detail.hidden = isOpen;
+  });
+});
+
 const makeElement = (tag, className, text) => {
   const element = document.createElement(tag);
   if (className) element.className = className;
@@ -42,13 +59,18 @@ const renderPortfolio = (items) => {
 
   items.forEach((item, index) => {
     const article = makeElement("article", item.highlight === "platform-operator" ? "is-platform-operator" : "");
+    const link = makeElement("a", "portfolio-link");
+    link.href = item.website;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", `${item.name} ${item.linkLabel || "홈페이지"} 새 창에서 열기`);
     article.dataset.portfolioId = item.id;
     article.dataset.year = String(item.year);
     article.dataset.status = item.status;
     article.dataset.investmentTypes = item.investmentTypes.join(" ");
 
     const top = makeElement("div", "portfolio-card-top");
-    top.append(makeElement("span", "", String(index + 1).padStart(2, "0")), makeElement("span", "", "Portfolio"));
+    top.append(makeElement("span", "", String(index + 1).padStart(2, "0")), makeElement("span", "", `${item.linkLabel || "Visit website"} ↗`));
 
     const copy = makeElement("div", "portfolio-card-copy");
     copy.append(
@@ -60,7 +82,8 @@ const renderPortfolio = (items) => {
 
     const tags = makeElement("div", "tag-list");
     item.tags.forEach((tag) => tags.append(makeElement("span", "", tag)));
-    article.append(top, copy, tags);
+    link.append(top, copy, tags);
+    article.append(link);
     portfolioGrid.append(article);
   });
 };

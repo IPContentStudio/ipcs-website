@@ -8,7 +8,9 @@ window.IPCS_PORTFOLIO = [
     tags: ["Direct Investment", "Fund Investment"],
     investmentTypes: ["direct", "fund"],
     year: 2026,
-    status: "portfolio"
+    status: "portfolio",
+    website: "https://www.instagram.com/likeplay__/",
+    linkLabel: "Brand channel"
   },
   {
     id: "the-medical-bridge",
@@ -19,7 +21,9 @@ window.IPCS_PORTFOLIO = [
     tags: ["Direct Investment", "Fund Investment"],
     investmentTypes: ["direct", "fund"],
     year: 2026,
-    status: "portfolio"
+    status: "portfolio",
+    website: "https://apps.apple.com/vn/app/qu%C3%BD-c%C3%B4-gangnam/id1533388254?l=vi",
+    linkLabel: "View on App Store"
   },
   {
     id: "ozx",
@@ -31,6 +35,8 @@ window.IPCS_PORTFOLIO = [
     investmentTypes: ["fund"],
     year: 2026,
     status: "portfolio",
-    highlight: "platform-operator"
+    highlight: "platform-operator",
+    website: "https://ozx.co.kr/",
+    linkLabel: "Visit website"
   }
 ];

@@ -3,6 +3,9 @@ const toggle = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#site-nav");
 const portfolioGrid = document.querySelector("#portfolio-grid");
 const trackToggles = document.querySelectorAll(".track-toggle");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.documentElement.classList.add("motion-ready");
 
 const closeMenu = () => {
   toggle?.setAttribute("aria-expanded", "false");
@@ -17,9 +20,15 @@ toggle?.addEventListener("click", () => {
 
 nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 
-window.addEventListener("scroll", () => {
+const updateScrollState = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 40);
-}, { passive: true });
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  document.documentElement.style.setProperty("--scroll-progress", String(progress));
+};
+
+window.addEventListener("scroll", updateScrollState, { passive: true });
+updateScrollState();
 
 window.addEventListener("resize", () => {
   if (window.innerWidth > 900) closeMenu();
@@ -31,18 +40,26 @@ document.querySelectorAll(".email-link[data-subject]").forEach((link) => {
 });
 
 trackToggles.forEach((button) => {
+  const detail = document.getElementById(button.getAttribute("aria-controls"));
+  if (detail) {
+    detail.hidden = false;
+    detail.setAttribute("aria-hidden", "true");
+  }
+
   button.addEventListener("click", () => {
-    const detail = document.getElementById(button.getAttribute("aria-controls"));
+    const selectedDetail = document.getElementById(button.getAttribute("aria-controls"));
     const isOpen = button.getAttribute("aria-expanded") === "true";
 
     trackToggles.forEach((otherButton) => {
       const otherDetail = document.getElementById(otherButton.getAttribute("aria-controls"));
       otherButton.setAttribute("aria-expanded", "false");
-      if (otherDetail) otherDetail.hidden = true;
+      otherButton.closest(".track-card")?.classList.remove("is-open");
+      otherDetail?.setAttribute("aria-hidden", "true");
     });
 
     button.setAttribute("aria-expanded", String(!isOpen));
-    if (detail) detail.hidden = isOpen;
+    button.closest(".track-card")?.classList.toggle("is-open", !isOpen);
+    selectedDetail?.setAttribute("aria-hidden", String(isOpen));
   });
 });
 
@@ -89,3 +106,53 @@ const renderPortfolio = (items) => {
 };
 
 renderPortfolio(window.IPCS_PORTFOLIO ?? []);
+
+const revealTargets = [
+  ...document.querySelectorAll(".section-pad .eyebrow, .glance-layout, .system-heading, .tracks-intro, .tracks, .portfolio-heading, .portfolio-note, .partners-heading, .partner-cards, .about-grid, .footer-top"),
+  ...document.querySelectorAll(".capability-list article, .portfolio-grid article")
+];
+
+revealTargets.forEach((element, index) => {
+  element.classList.add("reveal-item");
+  element.style.setProperty("--reveal-order", String(index % 5));
+});
+
+const platformVisual = document.querySelector(".platform-visual");
+platformVisual?.classList.add("poc-motion");
+
+if (reduceMotion || !("IntersectionObserver" in window)) {
+  revealTargets.forEach((element) => element.classList.add("is-visible"));
+  platformVisual?.classList.add("is-visible");
+} else {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -8%" });
+
+  revealTargets.forEach((element) => revealObserver.observe(element));
+  if (platformVisual) revealObserver.observe(platformVisual);
+}
+
+const sections = [...document.querySelectorAll("main section[id]")];
+const navLinks = [...document.querySelectorAll("#site-nav a")];
+
+if ("IntersectionObserver" in window) {
+  const sectionObserver = new IntersectionObserver((entries) => {
+    const current = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!current) return;
+
+    navLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${current.target.id}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }, { threshold: [0.22, 0.45], rootMargin: "-15% 0px -55%" });
+
+  sections.forEach((section) => sectionObserver.observe(section));
+}

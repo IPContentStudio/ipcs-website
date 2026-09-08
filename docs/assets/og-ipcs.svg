@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#2946f3"/>
+  <g stroke="#ffffff" stroke-opacity="0.14">
+    <path d="M0 126H1200M0 252H1200M0 378H1200M0 504H1200"/>
+    <path d="M200 0V630M400 0V630M600 0V630M800 0V630M1000 0V630"/>
+  </g>
+  <text x="62" y="86" fill="#ffffff" font-family="Arial, sans-serif" font-size="46" font-weight="700" letter-spacing="-2">IPCS</text>
+  <text x="62" y="162" fill="#ffffff" fill-opacity="0.76" font-family="monospace" font-size="18" letter-spacing="3">IP BUSINESS BUILDER</text>
+  <text x="62" y="342" fill="#ffffff" font-family="Noto Sans KR, Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-5">좋은 IP를,</text>
+  <text x="62" y="438" fill="#d9ff43" font-family="Noto Sans KR, Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-5">사업이 되게 만든다.</text>
+  <text x="62" y="552" fill="#ffffff" fill-opacity="0.78" font-family="Arial, sans-serif" font-size="24">Investment × Execution</text>
+  <g transform="translate(882 88)">
+    <rect x="96" y="0" width="180" height="170" fill="none" stroke="#ffffff" stroke-opacity="0.5"/>
+    <rect x="96" y="170" width="180" height="82" fill="#d9ff43"/>
+    <rect x="0" y="82" width="96" height="250" fill="#111312" fill-opacity="0.78" stroke="#ffffff" stroke-opacity="0.5"/>
+    <rect x="68" y="332" width="96" height="90" fill="#ffffff" fill-opacity="0.9"/>
+  </g>
+</svg>

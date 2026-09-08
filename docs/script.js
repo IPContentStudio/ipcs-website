@@ -36,7 +36,7 @@ window.addEventListener("resize", () => {
 
 document.querySelectorAll(".email-link[data-subject]").forEach((link) => {
   const subject = link.getAttribute("data-subject");
-  link.setAttribute("href", `mailto:jhpark@human108.com?subject=${encodeURIComponent(subject)}`);
+  link.setAttribute("href", `mailto:jhpark@ipcontentstudio.com?subject=${encodeURIComponent(subject)}`);
 });
 
 trackToggles.forEach((button) => {
@@ -99,7 +99,13 @@ const renderPortfolio = (items) => {
 
     const tags = makeElement("div", "tag-list");
     item.tags.forEach((tag) => tags.append(makeElement("span", "", tag)));
-    link.append(top, copy, tags);
+    const meta = makeElement("dl", "portfolio-meta");
+    const yearRow = makeElement("div");
+    yearRow.append(makeElement("dt", "", "Investment year"), makeElement("dd", "", String(item.year)));
+    const roleRow = makeElement("div");
+    roleRow.append(makeElement("dt", "", "IPCS role"), makeElement("dd", "", item.role));
+    meta.append(yearRow, roleRow);
+    link.append(top, copy, meta, tags);
     article.append(link);
     portfolioGrid.append(article);
   });
@@ -108,7 +114,7 @@ const renderPortfolio = (items) => {
 renderPortfolio(window.IPCS_PORTFOLIO ?? []);
 
 const revealTargets = [
-  ...document.querySelectorAll(".section-pad .eyebrow, .glance-layout, .system-heading, .tracks-intro, .tracks, .portfolio-heading, .portfolio-note, .partners-heading, .partner-cards, .about-grid, .footer-top"),
+  ...document.querySelectorAll(".section-pad .eyebrow, .glance-layout, .system-heading, .registration-status, .tracks-intro, .tracks, .portfolio-heading, .partners-heading, .partner-cards, .about-grid, .team-block, .company-profile, .footer-top"),
   ...document.querySelectorAll(".capability-list article, .portfolio-grid article")
 ];
 
@@ -135,6 +141,20 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
   revealTargets.forEach((element) => revealObserver.observe(element));
   if (platformVisual) revealObserver.observe(platformVisual);
 }
+
+const revealHashTarget = (hash) => {
+  if (!hash || hash === "#") return;
+  const section = document.querySelector(hash);
+  if (!section) return;
+  section.querySelectorAll(".reveal-item").forEach((element) => element.classList.add("is-visible"));
+  if (section === document.querySelector("#platform")) platformVisual?.classList.add("is-visible");
+};
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", () => revealHashTarget(link.getAttribute("href")));
+});
+window.addEventListener("hashchange", () => revealHashTarget(window.location.hash));
+revealHashTarget(window.location.hash);
 
 const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll("#site-nav a")];

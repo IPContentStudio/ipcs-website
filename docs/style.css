@@ -112,10 +112,10 @@ button { font: inherit; }
 .portfolio-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 10vw; align-items: end; margin: 72px 0 58px; }
 .portfolio-heading p { margin: 0; color: #4f5460; font-size: 16px; line-height: 1.8; }
 .portfolio-heading div > span { display: block; margin-top: 20px; font: 9px "IBM Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
-.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.portfolio-grid article { min-height: 430px; background: rgba(255,255,255,.48); display: flex; flex-direction: column; border-top: 4px solid var(--blue); transition: transform .22s ease, box-shadow .22s ease; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.portfolio-grid article { min-height: 430px; background: rgba(255,255,255,.62); display: flex; flex-direction: column; border-top: 4px solid var(--blue); transition: transform .22s ease, box-shadow .22s ease; }
 .portfolio-grid article:hover, .portfolio-grid article:focus-within { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(17,19,18,.12); }
-.portfolio-link { flex: 1; padding: 24px; display: flex; flex-direction: column; }
+.portfolio-link { flex: 1; padding: 28px; display: flex; flex-direction: column; }
 .portfolio-link:focus-visible { outline: 3px solid var(--acid); outline-offset: -6px; }
 .portfolio-grid article.is-platform-operator { background: var(--blue); color: white; border-color: var(--acid); }
 .portfolio-card-top { display: flex; justify-content: space-between; gap: 12px; font: 12px/1.4 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; opacity: .78; }
@@ -125,15 +125,14 @@ button { font: inherit; }
 .portfolio-card-copy strong { display: block; margin-top: 9px; font-size: 14px; font-weight: 500; opacity: .68; }
 .portfolio-description { min-height: 62px; margin: 24px 0 0; color: #474c55; font-size: 16px; line-height: 1.7; }
 .portfolio-grid article.is-platform-operator .portfolio-description { color: rgba(255,255,255,.72); }
-.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(17,19,18,.2); }
-.portfolio-grid article.is-platform-operator .tag-list { border-color: rgba(255,255,255,.25); }
-.tag-list span { padding: 7px 10px; border: 1px solid currentColor; border-radius: 100px; font: 12px/1.35 "IBM Plex Mono", monospace; letter-spacing: .03em; text-transform: uppercase; }
-.portfolio-meta { margin: 24px 0 0; border-top: 1px solid rgba(17,19,18,.2); }
-.portfolio-grid article.is-platform-operator .portfolio-meta { border-color: rgba(255,255,255,.25); }
-.portfolio-meta div { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 10px 0; border-bottom: 1px solid rgba(17,19,18,.15); }
-.portfolio-grid article.is-platform-operator .portfolio-meta div { border-color: rgba(255,255,255,.18); }
+.tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+.tag-list span { padding: 7px 11px; border: 0; border-radius: 100px; background: rgba(41,70,243,.09); color: #233bbd; font: 12px/1.35 "IBM Plex Mono", monospace; letter-spacing: .03em; text-transform: uppercase; }
+.portfolio-grid article.is-platform-operator .tag-list span { background: rgba(255,255,255,.14); color: white; }
+.portfolio-meta { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin: 26px 0 0; }
+.portfolio-meta div { display: grid; align-content: center; gap: 5px; min-height: 64px; padding: 11px 13px; background: rgba(41,70,243,.055); }
+.portfolio-grid article.is-platform-operator .portfolio-meta div { background: rgba(255,255,255,.1); }
 .portfolio-meta dt { font: 12px/1.4 "IBM Plex Mono", monospace; text-transform: uppercase; opacity: .68; }
-.portfolio-meta dd { margin: 0; font-size: 13px; font-weight: 600; text-align: right; }
+.portfolio-meta dd { margin: 0; font-size: 14px; font-weight: 600; text-align: left; }
 .portfolio-note { max-width: 800px; margin: 26px 0 0 auto; color: #626771; font-size: 11px; line-height: 1.7; text-align: right; }
 .portfolio-fallback { padding: 24px; border: 1px solid var(--line); }
 
@@ -143,7 +142,7 @@ button { font: inherit; }
 .platform-label { color: var(--acid); font: 12px "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .09em; }
 .platform h2 { margin: 15px 0 28px; font-size: clamp(54px, 6.5vw, 94px); line-height: .91; letter-spacing: -.07em; font-weight: 600; }
 .platform-description { max-width: 500px; color: rgba(255,255,255,.78); font-size: 16px; line-height: 1.8; }
-.operator-note { display: grid; grid-template-columns: auto 1fr; width: fit-content; gap: 5px 14px; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.32); }
+.operator-note { display: grid; grid-template-columns: auto 1fr; width: fit-content; gap: 5px 14px; margin-top: 28px; padding-left: 15px; border-left: 2px solid var(--acid); }
 .operator-note span { grid-row: span 2; color: rgba(255,255,255,.62); font: 12px "IBM Plex Mono", monospace; text-transform: uppercase; }
 .operator-note strong { color: var(--acid); font-size: 18px; line-height: 1; }
 .operator-note p { margin: 0; color: rgba(255,255,255,.66); font-size: 12px; }
@@ -179,13 +178,12 @@ button { font: inherit; }
 
 .partners-heading { display: grid; grid-template-columns: 1.25fr .75fr; gap: 10vw; align-items: end; margin: 72px 0 52px; }
 .partners-heading p { color: #4f524e; font-size: 16px; }
-.partner-cards { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.partner-cards article { min-height: 300px; padding: 24px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
-.partner-cards article:last-child { border-right: 0; }
+.partner-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.partner-cards article { min-height: 300px; padding: 26px; border-top: 2px solid var(--blue); background: rgba(255,255,255,.52); display: flex; flex-direction: column; }
 .partner-cards article > span { color: var(--blue); font: 12px/1.4 "IBM Plex Mono", monospace; }
 .partner-cards h3 { margin: auto 0 14px; font-size: 24px; letter-spacing: -.04em; }
 .partner-cards p { min-height: 48px; margin: 0; color: #4f524e; font-size: 16px; line-height: 1.7; }
-.partner-cards a { display: flex; justify-content: space-between; margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 14px; }
+.partner-cards a { display: flex; justify-content: flex-start; gap: 10px; width: fit-content; margin-top: 28px; color: var(--blue); font-size: 14px; font-weight: 600; }
 .partner-cards a:hover, .partner-cards a:focus-visible { color: var(--blue); }
 
 .about { background: var(--ink); color: white; }
@@ -202,8 +200,8 @@ button { font: inherit; }
 .team-grid { display: grid; gap: 14px; }
 .leadership-grid { grid-template-columns: repeat(3, 1fr); }
 .investment-team-grid { grid-template-columns: repeat(2, 1fr); }
-.team-grid article { min-height: 240px; padding: 28px; border: 1px solid rgba(255,255,255,.22); display: flex; flex-direction: column; }
-.investment-team-grid article { background: rgba(255,255,255,.035); border-top-color: var(--acid); }
+.team-grid article { min-height: 240px; padding: 28px; border-top: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.025); display: flex; flex-direction: column; }
+.investment-team-grid article { background: rgba(255,255,255,.045); border-top-color: var(--acid); }
 .team-grid article > span { color: var(--acid); font: 12px/1.5 "IBM Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; }
 .team-grid h3 { margin: auto 0 16px; font-size: 38px; letter-spacing: -.04em; }
 .team-grid h3 small { margin-left: 8px; font-size: 15px; font-weight: 500; letter-spacing: 0; color: #aeb1ac; }
@@ -273,8 +271,7 @@ footer { background: var(--acid); color: var(--ink); padding: 72px 4vw 28px; }
   .registration-status { grid-template-columns: 1fr; gap: 8px; margin-top: -24px; padding: 20px 0; }
   .partnership-intro { margin-left: 0; }
   .partner-cards { grid-template-columns: 1fr; }
-  .partner-cards article { min-height: 220px; border-right: 0; border-bottom: 1px solid var(--line); }
-  .partner-cards article:last-child { border-bottom: 0; }
+  .partner-cards article { min-height: 220px; }
   .footer-top { grid-template-columns: 1fr; min-height: auto; }
   .footer-top > span { margin-bottom: 65px; }
   .footer-contact { justify-self: start; margin-top: 40px; }

@@ -39,6 +39,47 @@ document.querySelectorAll(".email-link[data-subject]").forEach((link) => {
   link.setAttribute("href", `mailto:jhpark@ipcontentstudio.com?subject=${encodeURIComponent(subject)}`);
 });
 
+const copyToast = document.querySelector(".copy-toast");
+let copyToastTimer;
+
+const copyText = async (text) => {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
+  document.body.append(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+};
+
+document.querySelectorAll("[data-copy-email]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    try {
+      await copyText(button.getAttribute("data-copy-email"));
+      if (!copyToast) return;
+      window.clearTimeout(copyToastTimer);
+      copyToast.hidden = false;
+      requestAnimationFrame(() => copyToast.classList.add("is-visible"));
+      copyToastTimer = window.setTimeout(() => {
+        copyToast.classList.remove("is-visible");
+        window.setTimeout(() => { copyToast.hidden = true; }, 220);
+      }, 2200);
+    } catch {
+      if (!copyToast) return;
+      copyToast.textContent = "복사하지 못했습니다. 이메일 주소를 직접 선택해 주세요.";
+      copyToast.hidden = false;
+      copyToast.classList.add("is-visible");
+    }
+  });
+});
+
 trackToggles.forEach((button) => {
   const detail = document.getElementById(button.getAttribute("aria-controls"));
   if (detail) {
@@ -87,7 +128,7 @@ const renderPortfolio = (items) => {
     article.dataset.investmentTypes = item.investmentTypes.join(" ");
 
     const top = makeElement("div", "portfolio-card-top");
-    top.append(makeElement("span", "", String(index + 1).padStart(2, "0")), makeElement("span", "", `${item.linkLabel || "Visit website"} ↗`));
+    top.append(makeElement("span", "", String(index + 1).padStart(2, "0")), makeElement("span", "", `${item.linkLabel || "홈페이지"} ↗`));
 
     const copy = makeElement("div", "portfolio-card-copy");
     copy.append(
@@ -159,20 +200,22 @@ revealHashTarget(window.location.hash);
 const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll("#site-nav a")];
 
-if ("IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver((entries) => {
-    const current = entries
-      .filter((entry) => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (!current) return;
+const updateActiveNavigation = () => {
+  const marker = window.scrollY + window.innerHeight * 0.32;
+  let currentSection;
 
-    navLinks.forEach((link) => {
-      const active = link.getAttribute("href") === `#${current.target.id}`;
-      link.classList.toggle("is-active", active);
-      if (active) link.setAttribute("aria-current", "location");
-      else link.removeAttribute("aria-current");
-    });
-  }, { threshold: [0.22, 0.45], rootMargin: "-15% 0px -55%" });
+  sections.forEach((section) => {
+    if (section.offsetTop <= marker) currentSection = section;
+  });
 
-  sections.forEach((section) => sectionObserver.observe(section));
-}
+  navLinks.forEach((link) => {
+    const active = currentSection && link.getAttribute("href") === `#${currentSection.id}`;
+    link.classList.toggle("is-active", Boolean(active));
+    if (active) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  });
+};
+
+window.addEventListener("scroll", updateActiveNavigation, { passive: true });
+window.addEventListener("resize", updateActiveNavigation);
+updateActiveNavigation();

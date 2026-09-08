@@ -11,7 +11,7 @@ window.IPCS_PORTFOLIO = [
     status: "portfolio",
     role: "Investment",
     website: "https://www.instagram.com/likeplay__/",
-    linkLabel: "Brand channel"
+    linkLabel: "브랜드 채널"
   },
   {
     id: "the-medical-bridge",
@@ -25,7 +25,7 @@ window.IPCS_PORTFOLIO = [
     status: "portfolio",
     role: "Investment",
     website: "https://apps.apple.com/vn/app/qu%C3%BD-c%C3%B4-gangnam/id1533388254?l=vi",
-    linkLabel: "Vietnam service app"
+    linkLabel: "베트남 서비스 앱"
   },
   {
     id: "ozx",
@@ -40,6 +40,6 @@ window.IPCS_PORTFOLIO = [
     role: "Investment · PoC Platform",
     highlight: "platform-operator",
     website: "https://ozx.co.kr/",
-    linkLabel: "Visit website"
+    linkLabel: "홈페이지"
   }
 ];
